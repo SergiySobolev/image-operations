@@ -1,6 +1,4 @@
 function [ res ] = MSE(matrix1, matrix2 )
-%MSE Summary of this function goes here
-%   Detailed explanation goes here
     dif = matrix1 - matrix2;    
     rnd = round(dif);   
     squared = rnd.^2;   
