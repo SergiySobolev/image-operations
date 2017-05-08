@@ -1,5 +1,5 @@
 MSEResults = runtests('MSETest.m');
-%disp(MSEResults);
 
 MultipleMaxResults = runtests('MultipleMaxTest.m');
-%disp(MultipleMaxResults);
+
+My2DfftResults = runtests('My2DfftTest.m');
