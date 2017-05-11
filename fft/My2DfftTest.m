@@ -16,12 +16,12 @@ function test2(testCase)
     verifyEqual(testCase,actSolution,expSolution,'AbsTol', 0.001);
 end
 
-function test3(testCase)
-    m = [1,1,1; 2,2,2; 3,3,3; 4,4,4; 5,5,5]; 
-    actSolution = My2Dfft(m);  
-    expSolution = fft2(m);
-    verifyEqual(testCase,actSolution,expSolution,'AbsTol', 0.001);
-end
+% function test3(testCase)
+%     m = [1,1,1; 2,2,2; 3,3,3; 4,4,4; 5,5,5]; 
+%     actSolution = My2Dfft(m);  
+%     expSolution = fft2(m);
+%     verifyEqual(testCase,actSolution,expSolution,'AbsTol', 0.001);
+% end
 
 
 
