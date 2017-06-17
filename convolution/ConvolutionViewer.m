@@ -25,32 +25,39 @@ function varargout = ConvolutionViewer_OutputFcn(hObject, eventdata, handles)
     varargout{1} = handles.output;
 
 
+function signal_Callback(hObject, eventdata, handles)
 
-function edit1_Callback(hObject, eventdata, handles)
-% hObject    handle to edit1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of edit1 as text
-%        str2double(get(hObject,'String')) returns contents of edit1 as a double
+function signal_CreateFcn(hObject, eventdata, handles)
 
 
-% --- Executes during object creation, after setting all properties.
-function edit1_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
 
 
-% --- Executes on button press in pushbutton1.
-function pushbutton1_Callback(hObject, eventdata, handles)
-    Y = str2num(get(handles.edit1, 'String'));
-    sz = size(Y,2);
-    X = 1:1:sz;
-    stem(X,Y);
+% --- Executes on button press in convolve.
+function convolve_Callback(hObject, eventdata, handles)
+    showSignal(handles);
+    showImpulseResponse(handles);
+
+function ImpulseResponse_Callback(hObject, eventdata, handles)
+
+function ImpulseResponse_CreateFcn(hObject, eventdata, handles)
+
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+function showSignal(handles)
+    signalY = str2num(get(handles.signal, 'String'));
+    axes(handles.SignalAxes);
+    stem(signalY, 'filled');
+    
+function showImpulseResponse(handles)
+    impulseResponseY = str2num(get(handles.ImpulseResponse, 'String'));
+    axes(handles.ImpulseResponseAxes);
+    stem(impulseResponseY, 'filled');    
+
+        
+    
+ 
