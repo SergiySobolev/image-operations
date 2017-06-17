@@ -5,3 +5,5 @@ MAEResults = runtests('MAETest.m');
 MultipleMaxResults = runtests('MultipleMaxTest.m');
 
 My2DfftResults = runtests('My2DfftTest.m');
+
+ConvolveTestResults = run(ConvolutionTest);
