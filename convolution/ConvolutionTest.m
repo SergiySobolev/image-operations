@@ -3,11 +3,17 @@ classdef ConvolutionTest < matlab.unittest.TestCase
     %   Detailed explanation goes here
     
     methods (Test)
-        function testRealSolution(testCase)
+        function test1(testCase)
             c = Convolution([1,1,1], [1,-2,3]);          
             actSolution = doConvolution(c);         
-            expSolution = [1,1,1];
+            expSolution =  conv([1,1,1], [1,-2,3]);
             testCase.verifyEqual(actSolution,expSolution)
+        end 
+        function test2(testCase)
+            c = Convolution([1,1,1], [-1,-1,1]);          
+            actSolution = doConvolution(c);         
+            expSolution = conv([1,1,1], [-1,-1,1]);
+            testCase.verifyEqual(actSolution,expSolution);            
         end 
     end
     
