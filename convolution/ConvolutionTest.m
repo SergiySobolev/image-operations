@@ -15,6 +15,22 @@ classdef ConvolutionTest < matlab.unittest.TestCase
             expSolution = conv([1,1,1], [-1,-1,1]);
             testCase.verifyEqual(actSolution,expSolution);            
         end 
+        function generalTest(testCase)
+            s = randperm(15,5);
+            ir = randperm(15,3);
+            c = Convolution(s, ir);          
+            actSolution = doConvolution(c);         
+            expSolution = conv(s, ir);
+            testCase.verifyEqual(actSolution,expSolution);            
+        end 
+        function emptyVectorTest(testCase)
+            s = randperm(15,0);
+            ir = randperm(15,3);
+            c = Convolution(s, ir);          
+            actSolution = doConvolution(c);         
+            expSolution = conv(s, ir);
+            testCase.verifyEqual(actSolution,expSolution);
+        end    
     end
     
 end
