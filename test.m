@@ -8,6 +8,8 @@ My2DfftResults = runtests('My2DfftTest.m');
 
 NullableVectorResults = run(NullableVectorTest);
 
+NullableNegativeVectorResults = run(NullableNegativeVectorTest);
+
 ConvolveTestResults = run(ConvolutionTest);
 
 

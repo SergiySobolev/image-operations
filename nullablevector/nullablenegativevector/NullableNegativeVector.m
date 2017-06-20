@@ -21,7 +21,17 @@ classdef NullableNegativeVector
                     r = obj.y(xindex);
                 end    
           end
+          
+          function r = flip(obj)
+                obj.y = fliplr(obj.y);
+                obj.x = -fliplr(obj.x);
+                r = obj;
+          end
+          
+          
     end
+    
+    
     
 end
 
