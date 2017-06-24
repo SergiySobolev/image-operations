@@ -64,6 +64,14 @@ classdef NullableNegativeVector
              nnv = shift(nnv, lb);
              r = nnv;
           end
+          
+          function r = sum(obj)
+              r = sum(obj.y);
+          end;
+          
+          function r = size(obj)
+              r = length(obj.x);
+          end; 
     end
     
     

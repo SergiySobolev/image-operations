@@ -27,7 +27,21 @@ classdef Convolution
                 end    
                 r = c;
             end
-        end        
+        end 
+        
+        function r = doConvolution2(obj)
+            signalNnv = NullableNegativeVector(obj.signal.value);
+            irNnv = NullableNegativeVector(obj.impulseResponse.value);
+            signalLength = size(signalNnv);
+            irLength = size(irNnv);
+            fIrNnv = flip(irNnv);
+            x = [];
+            for i=0:signalLength+irLength-2
+                v = sum(multiply(signalNnv, shift(fIrNnv,i)));
+                x = [x,v];
+            end;
+            r = x;
+        end
     end
     
 end
