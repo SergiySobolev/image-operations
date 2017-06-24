@@ -53,7 +53,17 @@ classdef NullableNegativeVector
              r = nnv;
           end
           
-          
+          function r = add(nnv1, nnv2)
+             lb = min(leftBound(nnv1), leftBound(nnv2));
+             rb = max(rightBound(nnv1), rightBound(nnv2));                      
+             newY = [];
+             for i=lb:rb                 
+                 newY = [newY, get(nnv1,i)+get(nnv2,i)];
+             end;
+             nnv = NullableNegativeVector(newY);
+             nnv = shift(nnv, lb);
+             r = nnv;
+          end
     end
     
     
