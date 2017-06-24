@@ -65,30 +65,30 @@ classdef NullableNegativeVectorTest < matlab.unittest.TestCase
         
         function getLeftOrdinateTest(testCase)
              nnv = NullableNegativeVector([1,2,3,4,5]);
-             testCase.verifyEqual(getLeftOrdinate(nnv), 0); 
+             testCase.verifyEqual(leftBound(nnv), 0); 
              nnv = shift(nnv, -2);
-             testCase.verifyEqual(getLeftOrdinate(nnv), -2);
+             testCase.verifyEqual(leftBound(nnv), -2);
              nnv = flip(nnv);
-             testCase.verifyEqual(getLeftOrdinate(nnv), -2);
+             testCase.verifyEqual(leftBound(nnv), -2);
              nnv = shift(nnv, -3);
-             testCase.verifyEqual(getLeftOrdinate(nnv), -5);
+             testCase.verifyEqual(leftBound(nnv), -5);
              nnv = flip(nnv);      
-             testCase.verifyEqual(getLeftOrdinate(nnv), 1);
+             testCase.verifyEqual(leftBound(nnv), 1);
         end;
         
         function getRightOrdinateTest(testCase)
              nnv = NullableNegativeVector([1,2,3,4,5]);
-             testCase.verifyEqual(getRightOrdinate(nnv), 4); 
+             testCase.verifyEqual(rightBound(nnv), 4); 
              nnv = shift(nnv, -2);
-             testCase.verifyEqual(getRightOrdinate(nnv), 2);
+             testCase.verifyEqual(rightBound(nnv), 2);
              nnv = flip(nnv);
-             testCase.verifyEqual(getRightOrdinate(nnv), 2);
+             testCase.verifyEqual(rightBound(nnv), 2);
              nnv = shift(nnv, -3);
-             testCase.verifyEqual(getRightOrdinate(nnv), -1);
+             testCase.verifyEqual(rightBound(nnv), -1);
              nnv = flip(nnv);      
-             testCase.verifyEqual(getRightOrdinate(nnv), 5);
-        end;
-        
+             testCase.verifyEqual(rightBound(nnv), 5);
+        end;        
+             
        
     end
     

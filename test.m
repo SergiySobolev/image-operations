@@ -10,6 +10,8 @@ NullableVectorResults = run(NullableVectorTest);
 
 NullableNegativeVectorResults = run(NullableNegativeVectorTest);
 
+NullableNegativeMultiplyVectorTestResults = run(NullableNegativeMultiplyVectorTest);
+
 ConvolveTestResults = run(ConvolutionTest);
 
 
