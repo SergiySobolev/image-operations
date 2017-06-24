@@ -59,8 +59,11 @@ classdef NullableNegativeVectorTest < matlab.unittest.TestCase
              nnv = NullableNegativeVector([1,2,3,4,5]);
              shiftedNnvByTwo = shift(nnv, -2);
              shiftedNnvByTwoAndFlippedNnv = flip(shiftedNnvByTwo);
-             testCase.verifyEqual(shiftedNnvByTwoAndFlippedNnv.x,[-2,-1,0,1,2]);
-             testCase.verifyEqual(shiftedNnvByTwoAndFlippedNnv.y,[5,4,3,2,1]);            
+             testCase.verifyEqual(shiftedNnvByTwoAndFlippedNnv.x,[2,3,4,5,6]);
+             testCase.verifyEqual(shiftedNnvByTwoAndFlippedNnv.y,[5,4,3,2,1]);
+             shiftedNnvByNegativeThree = shift(shiftedNnvByTwo, -3);
+             testCase.verifyEqual(shiftedNnvByNegativeThree.x,[-1,0,1,2,3]);
+             testCase.verifyEqual(shiftedNnvByNegativeThree.y,[1,2,3,4,5]);
         end;
     end
     

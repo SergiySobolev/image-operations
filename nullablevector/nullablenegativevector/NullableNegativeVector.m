@@ -28,6 +28,11 @@ classdef NullableNegativeVector
                 r = obj;
           end
           
+          function r = shift(obj, step)
+            obj.x = obj.x + step;
+            r = obj;
+          end
+          
           
     end
     
