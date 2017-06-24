@@ -34,15 +34,12 @@ classdef NullableNegativeVector
           end
           
           function r = getLeftOrdinate(obj)
-             r = min(obj.x);   
+                
           end
           
-           function r = getRightOrdinate(obj)
-             r = max(obj.x);   
+          function r = add(nnv1, nnv2)
+              
           end
-%           function r = add(nnv1, nnv2)
-%               
-%           end
           
           
     end
