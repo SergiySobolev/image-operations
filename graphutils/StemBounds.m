@@ -14,7 +14,7 @@ classdef StemBounds
             mn = min(obj.values);
             mx = max(obj.values);
             apl = 0.2*(mx - mn);
-            r = [-0.2*l 1.2*l mn-apl mx+apl];            
+            r = [-0.2*l 1.2*l min(0,mn)-apl max(0,mx)+apl];            
         end
     end
     

@@ -74,8 +74,15 @@ function showConvolutionResult(handles)
     stem(1:length(convolutionResult), convolutionResult, 'filled');  
     sb = StemBounds(convolutionResult);
     b = bounds(sb);
-    axis(b);
-    
-        
-    
- 
+    axis(b);    
+
+function generateSignalButton_Callback(hObject, eventdata, handles)
+    signalValue = mat2str(randi(15,1,10));
+    set(handles.signal,'string',signalValue);
+    showSignal(handles);
+
+function generateImpulseResponse_Callback(hObject, eventdata, handles)
+    irValue = mat2str(randi(15,1,5));
+    set(handles.ImpulseResponse,'string',irValue);
+    showImpulseResponse(handles);
+
