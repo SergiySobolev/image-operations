@@ -59,6 +59,14 @@ classdef ConvolutionTest < matlab.unittest.TestCase
             expSolution = conv([1,1,1], [-1,-1,1]);
             testCase.verifyEqual(actSolution,expSolution);            
         end 
+        function test2doConvolution3(testCase)
+            c = Convolution([1,2,3,4,5,6,7,8,9],[6,5,4,3,2,1,2,3,4,5]);          
+            actSolution = doConvolution(c);
+            actSolution2 = doConvolution2(c);  
+            expSolution = conv([1,2,3,4,5,6,7,8,9],[6,5,4,3,2,1,2,3,4,5]);
+            testCase.verifyEqual(actSolution,expSolution);
+            testCase.verifyEqual(actSolution2,expSolution);
+        end 
     end
     
 end

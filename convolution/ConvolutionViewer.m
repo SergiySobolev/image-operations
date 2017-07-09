@@ -39,6 +39,7 @@ end
 function convolve_Callback(hObject, eventdata, handles)
     showSignal(handles);
     showImpulseResponse(handles);
+    showConvolutionResult(handles);
 
 function ImpulseResponse_Callback(hObject, eventdata, handles)
 
@@ -51,13 +52,30 @@ end
 function showSignal(handles)
     signalY = str2num(get(handles.signal, 'String'));
     axes(handles.SignalAxes);
-    stem(signalY, 'filled');
+    stem(1:length(signalY), signalY, 'filled');
+    sb = StemBounds(signalY);
+    b = bounds(sb);
+    axis(b);
     
 function showImpulseResponse(handles)
     impulseResponseY = str2num(get(handles.ImpulseResponse, 'String'));
     axes(handles.ImpulseResponseAxes);
-    stem(impulseResponseY, 'filled');    
+    stem(1:length(impulseResponseY), impulseResponseY, 'filled'); 
+    sb = StemBounds(impulseResponseY);
+    b = bounds(sb);
+    axis(b);
 
+function showConvolutionResult(handles)
+    signal = str2num(get(handles.signal, 'String'));
+    ir = str2num(get(handles.ImpulseResponse, 'String')); 
+    c = Convolution(signal, ir);
+    convolutionResult = doConvolution2(c); 
+    axes(handles.ConvolutionAxes);
+    stem(1:length(convolutionResult), convolutionResult, 'filled');  
+    sb = StemBounds(convolutionResult);
+    b = bounds(sb);
+    axis(b);
+    
         
     
  
