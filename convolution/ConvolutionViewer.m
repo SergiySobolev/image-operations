@@ -49,40 +49,36 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
-function showSignal(handles)
-    signalY = str2num(get(handles.signal, 'String'));
-    axes(handles.SignalAxes);
-    stem(1:length(signalY), signalY, 'filled');
-    sb = StemBounds(signalY);
-    b = bounds(sb);
-    axis(b);
-    
-function showImpulseResponse(handles)
-    impulseResponseY = str2num(get(handles.ImpulseResponse, 'String'));
-    axes(handles.ImpulseResponseAxes);
-    stem(1:length(impulseResponseY), impulseResponseY, 'filled'); 
-    sb = StemBounds(impulseResponseY);
+function showOnAxis(values, axesId)
+    axes(axesId);
+    stem(1:length(values), values, 'filled'); 
+    sb = StemBounds(values);
     b = bounds(sb);
     axis(b);
 
+
+function showSignal(handles)
+    signalY = str2num(get(handles.signal, 'String'));
+    showOnAxis(signalY, handles.SignalAxes);
+     
+function showImpulseResponse(handles)
+    impulseResponseY = str2num(get(handles.ImpulseResponse, 'String'));
+    showOnAxis(impulseResponseY, handles.ImpulseResponseAxes);
+    
 function showConvolutionResult(handles)
     signal = str2num(get(handles.signal, 'String'));
     ir = str2num(get(handles.ImpulseResponse, 'String')); 
     c = Convolution(signal, ir);
     convolutionResult = doConvolution2(c); 
-    axes(handles.ConvolutionAxes);
-    stem(1:length(convolutionResult), convolutionResult, 'filled');  
-    sb = StemBounds(convolutionResult);
-    b = bounds(sb);
-    axis(b);    
+    showOnAxis(convolutionResult, handles.ConvolutionAxes);   
 
 function generateSignalButton_Callback(hObject, eventdata, handles)
-    signalValue = mat2str(randi(15,1,10));
+    signalValue = mat2str(randi(15,1,12));
     set(handles.signal,'string',signalValue);
     showSignal(handles);
 
 function generateImpulseResponse_Callback(hObject, eventdata, handles)
-    irValue = mat2str(randi(15,1,5));
+    irValue = mat2str(randi(15,1,8));
     set(handles.ImpulseResponse,'string',irValue);
     showImpulseResponse(handles);
 
