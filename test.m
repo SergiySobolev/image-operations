@@ -14,4 +14,6 @@ NullableNegativeMultiplyAddVectorTestResults = run(NullableNegativeMultiplyAddVe
 
 ConvolveTestResults = run(ConvolutionTest);
 
+ConvolveTest2DResults = run(Convolution2DTest);
+
 

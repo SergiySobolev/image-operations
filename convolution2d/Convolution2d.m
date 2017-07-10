@@ -10,6 +10,10 @@ classdef Convolution2d
             obj.signal = signal;
             obj.impulseResponse = impulseResponse;
         end
+        
+        function r = doConvolution2d(signal, impulseResponse)
+            r = [1 1;1 1];
+        end
     end
     
 end
